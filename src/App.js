@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState,Component } from "react";
+import "./App.css";
+import Person from "./Components/Person/Person";
 
-function App() {
+class App extends Component {
+  // const [state, setstate] = useState({
+  //   persons: {
+  //     name: "safi",
+  //     age: "22",
+  //   }
+  // });
+  constructor(props){
+    super(props);
+    this.state={persons:{name:"safi"}}
+  }
+  changeState = () => {
+    // setstate({
+    //   persons: {
+    //     name: "safi saqlain",
+    //     age: "28"
+    //   }
+    // });
+    this.setState({persons:{name:"safisaqlain"}})
+  };
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Person name={this.state.persons.name} changeState={this.changeState}></Person>
+     
     </div>
-  );
-}
+  );}
+};
 
 export default App;
